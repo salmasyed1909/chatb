@@ -4,7 +4,7 @@
 To develop a chatbot using natural language processing (NLP) techniques to facilitate human-computer interaction.
 
 ### DATASET LINK
-[https://www.kaggle.com/datasets](https://www.kaggle.com/datasets)
+[https://www.kaggle.com/datasets](https://www.kaggle.com/datasets/syedsalma/chatbot-csv)
 
 ### NOTEBOOK LINK
 [https://drive.google.com/drive/folders](https://drive.google.com/drive/folders)
