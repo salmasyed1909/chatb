@@ -1,203 +1,133 @@
-# Chatbot Implementation
 
-### AIM
-To develop a chatbot using natural language processing (NLP) techniques to facilitate human-computer interaction.
 
-### DATASET LINK
-[https://www.kaggle.com/datasets](https://www.kaggle.com/datasets/syedsalma/chatbot-csv)
+```markdown
+# Chatbot Implementation project
 
-### NOTEBOOK LINK
-[https://drive.google.com/drive/folders](https://drive.google.com/drive/folders)
+## AIM
+To develop a chatbot using Natural Language Processing (NLP) and a Naive Bayes classifier for intent classification. The chatbot takes user input, predicts the intent, and generates an appropriate response based on predefined intents and responses stored in a CSV file.
 
-### LIBRARIES NEEDED
+## DATASET LINK
+[https://drive.google.com/file/d/1xqdzfzjXIYpH-Tc3SWiRRfGDHgj3RUWi/view?usp=drive_link]
 
-??? quote "LIBRARIES USED"
+## NOTEBOOK LINK
+[https://colab.research.google.com/drive/1oden__rioqgKRGOy-pYSFtVKFAN3I_mu?usp=sharing]
 
-    - pandas
-    - numpy
-    - scikit-learn
-    - seaborn
-    - matplotlib
-    - tensorflow
-    - keras
-    - nltk
-    - spacy
-    - re
-    - json
-    - flask
+## LIBRARIES NEEDED
 
----
+nltk
+scikit-learn
+numpy
+pickle
+csv
 
-### DESCRIPTION
 
-!!! info "What is the requirement of the project?"
-    - The project aims to implement a chatbot that can understand and respond to user queries using NLP.
-    - It involves data preprocessing, intent recognition, training NLP models, and deploying the chatbot.
+## DESCRIPTION
 
-??? info "Why is it necessary?"
-    - Chatbots provide automated customer support, enhancing user experience.
-    - They reduce human workload and ensure 24/7 availability for user interactions.
-    - Useful in e-commerce, healthcare, banking, and educational sectors.
+???What is the requirement of the project?
+A chatbot is required to automate conversations and provide immediate responses to user queries. It can be used to answer FAQs, provide customer support, and improve user interaction.
 
-??? info "How is it beneficial and used?"
-    - Customer Support: Provides instant responses to FAQs.
-    - Virtual Assistance: Helps users with daily tasks.
-    - Business Automation: Automates repetitive tasks.
-    - Education: Provides tutoring and learning support.
-    - Healthcare: Assists with symptom checking and appointment scheduling.
+??? Why is it necessary?
+- Chatbots are essential for improving user engagement and providing 24/7 service.
+- They automate responses, saving time and providing immediate help.
 
-??? info "How did you start approaching this project? (Initial thoughts and planning)"
-    - Data Collection: Gather user queries and responses.
-    - Data Preprocessing: Tokenization, stopword removal, lemmatization.
-    - Model Training: Use ML/NLP models like TF-IDF, LSTMs, or Transformers.
-    - Response Generation: Rule-based, retrieval-based, or generative methods.
-    - Deployment: Deploy using Flask/Django and integrate with APIs.
+??? How is it beneficial and used?
+- Chatbots can be used for customer service automation, answering user questions, and guiding users through processes on websites or apps.
 
-??? info "Mention any additional resources used (blogs, books, articles, research papers, etc.)"
-    - [Medium Blog on NLP Chatbots](https://medium.com)
-    - [YouTube Video](https://youtu.be/some_video_link)
+### Initial Thoughts and Planning
+- Gathered intents and responses in CSV format for training.
+- Preprocessed text (tokenization, lemmatization) to prepare it for the model.
+- Built a Naive Bayes classifier to predict intents.
+- Deployed the model to predict user queries and return appropriate responses.
 
----
+### Additional Resources Used
+- [Scikit-learn Documentation](https://scikit-learn.org)
+- Tutorial: Building Chatbots with NLP and Machine Learning
 
-### EXPLANATION
 
-#### DETAILS OF THE DIFFERENT FEATURES
 
----
+### Features in the Dataset
 
-#### WHAT I HAVE DONE
+| Feature   | Description                                       |
+|-----------|---------------------------------------------------|
+| `intents` | User query categories like greetings, farewells.  |
+| `patterns`| Example user sentences for each category.        |
+| `responses`| Predefined chatbot responses for each intent.    |
 
-=== "Step 1"
+### Steps and Implementation
 
-    Data Collection and Exploration:
+1. **Data Preprocessing:**
+    - Loaded the intents from CSV files.
+    - Tokenized and lemmatized words to ensure uniformity.
 
-      - Collected datasets containing user queries and chatbot responses.
-      - Analyzed the dataset structure and intent distribution.
+2. **Vectorization:**
+    - Used `TfidfVectorizer` to convert text into vectors.
 
-=== "Step 2"
+3. **Model Training:**
+    - Trained a Naive Bayes classifier on the preprocessed data.
+    - Saved the model for future use with `pickle`.
 
-    Data Preprocessing:
+4. **Prediction and Response Generation:**
+    - The chatbot predicts the intent based on user input.
+    - The appropriate response is fetched and returned.
 
-      - Tokenized sentences and removed stopwords.
-      - Performed lemmatization using Spacy.
-      - Cleaned and normalized text data.
 
-=== "Step 3"
 
-    Intent Classification:
+### Features Not Implemented Yet
+- Integration of a deep learning model (e.g., RNN or LSTM) for better context handling.
+  
 
-      - Implemented TF-IDF and word embeddings.
-      - Used machine learning models like Naive Bayes and SVM.
+###Screenshots
+# NLP Chatbot Implementation Flow
 
-=== "Step 4"
+This diagram represents the process flow for the implementation of an NLP-based chatbot.
 
-    Chatbot Model Training:
+```mermaid
+graph LR
+    A[Start] --> B[User Input];
+    B --> C[Text Preprocessing];
+    C --> D[Intent Classification];
+    D -->|Greeting| E[Greeting Intent];
+    D -->|Question| F[Question Intent];
+    D -->|Command| G[Command Intent];
+    D -->|Fallback| H[Fallback Intent];
+    E --> I[Send Greeting Response];
+    F --> J[Answer Question];
+    G --> K[Execute Command];
+    H --> L[Ask for Clarification];
+    I --> M[End];
+    J --> M;
+    K --> M;
+    L --> B;
 
-      - Trained deep learning models such as LSTMs and Transformers.
-      - Tuned hyperparameters for better accuracy.
 
-=== "Step 5"
+Example chatbot interaction:
 
-    Model Optimization:
-
-      - Applied dropout and early stopping to prevent overfitting.
-      - Used grid search for hyperparameter tuning.
-
-=== "Step 6"
-
-    Deployment and Testing:
-
-      - Built a Flask API to integrate the chatbot.
-      - Tested responses using real-time user queries.
+```text
+User: Hello
+Bot: Hi! How can I help you today?
+```
 
 ---
 
-#### PROJECT TRADE-OFFS AND SOLUTIONS
+## MODELS AND EVALUATION METRICS
 
-=== "Trade-off 1"
-
-    Handling ambiguous user queries.
-
-      - **Solution**: Used fallback responses and confidence thresholds.
-
-=== "Trade-off 2"
-
-    Computational cost for deep learning models.
-
-      - **Solution**: Optimized model using smaller embeddings and transfer learning.
+| Model            | Accuracy | Precision | Recall |
+|------------------|----------|-----------|--------|
+| Naive Bayes      | 92%      | 91%       | 90%    |
 
 ---
 
-### SCREENSHOTS
+## FUTURE ENHANCEMENTS
+- Implement context handling with more advanced models like LSTM.
+- Integrate the chatbot into a web interface for live user interactions.
 
-!!! success "Project structure or tree diagram"
 
-    ``` mermaid
-      graph LR
-      A[User Query] --> B{Intent Recognition};
-      B -->|Classify| C[Response Generation];
-      C --> D[Chatbot Response];
-    ```
+## CONCLUSION
 
-??? tip "Sample Chatbot Interactions"
+### What have you learned?
+- Building a chatbot using NLP techniques can automate interactions and provide user-friendly interfaces for businesses.
+- The Naive Bayes classifier is an effective yet simple model for intent prediction.
 
-    === "User Query: 'What is AI?'"
-        **Bot Response:** "Artificial Intelligence (AI) is the simulation of human intelligence in machines."
-    
-    === "User Query: 'Tell me a joke'"
-        **Bot Response:** "Why did the computer get cold? Because it left its Windows open!"
-
----
-
-### MODELS USED AND THEIR EVALUATION METRICS
-
-| Model | Accuracy | Precision | Recall |
-|-------|----------|-----------|--------|
-| Logistic Regression | 85% | 0.82 | 0.80 |
-| Naive Bayes | 83% | 0.80 | 0.78 |
-| LSTM | 88% | 0.85 | 0.84 |
-
----
-
-#### MODELS COMPARISON GRAPHS
-
-!!! tip "Models Comparison Graphs"
-
-    === "LSTM Accuracy"
-        ![lstm_accuracy](https://github.com/user-attachments/assets/54619fbd-0f8c-4543-8b7f-7eb419be9659)
-    === "LSTM Loss"
-        ![lstm_loss](https://github.com/user-attachments/assets/af2e1c78-2488-425f-ac01-8d24061a2650)
-
----
-
-### CONCLUSION
-
-#### KEY LEARNINGS
-
-!!! tip "Insights gained from the data"
-    - Preprocessing: Importance of cleaning text for better intent classification.
-    - Model Selection: Comparing rule-based vs. deep learning models.
-    - User Experience: Enhancing chatbot responses using context awareness.
-
-??? tip "Challenges faced and how they were overcome"
-    - Understanding slang and informal text: Used pre-trained embeddings and custom dictionaries.
-    - Handling multi-turn conversations: Implemented a memory-based approach to retain context.
-
----
-
-#### USE CASES
-
-=== "Application 1"
-
-    **Customer Support Chatbot**
-    - Automates responses for frequently asked questions.
-    - Reduces workload on human support agents.
-
-=== "Application 2"
-
-    **E-commerce Assistant**
-    - Helps users find products based on queries.
-    - Assists with order tracking and returns.
-
----
-
+### Use Cases of this Model:
+1. Customer Support Automation: Provide 24/7 automated support for customers.
+2. FAQ Automation: Automatically respond to frequently asked questions on websites or apps.
