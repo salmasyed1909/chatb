@@ -76,29 +76,6 @@ A chatbot is required to automate conversations and provide immediate responses 
 - Integration of a deep learning model (e.g., RNN or LSTM) for better context handling.
   
 
-###Screenshots
-# NLP Chatbot Implementation Flow
-
-This diagram represents the process flow for the implementation of an NLP-based chatbot.
-
-```mermaid
-graph LR
-    A[Start] --> B[User Input];
-    B --> C[Text Preprocessing];
-    C --> D[Intent Classification];
-    D -->|Greeting| E[Greeting Intent];
-    D -->|Question| F[Question Intent];
-    D -->|Command| G[Command Intent];
-    D -->|Fallback| H[Fallback Intent];
-    E --> I[Send Greeting Response];
-    F --> J[Answer Question];
-    G --> K[Execute Command];
-    H --> L[Ask for Clarification];
-    I --> M[End];
-    J --> M;
-    K --> M;
-    L --> B;
-
 
 Example chatbot interaction:
 
@@ -131,3 +108,23 @@ Bot: Hi! How can I help you today?
 ### Use Cases of this Model:
 1. Customer Support Automation: Provide 24/7 automated support for customers.
 2. FAQ Automation: Automatically respond to frequently asked questions on websites or apps.
+   # NLP Chatbot Flow
+
+```mermaid
+graph LR
+    A[Start] --> B[User Input];
+    B --> C[Text Preprocessing];
+    C --> D[Intent Classification];
+    D -->|Greeting| E[Greeting Intent];
+    D -->|Question| F[Question Intent];
+    D -->|Command| G[Command Intent];
+    D -->|Fallback| H[Fallback Intent];
+    E --> I[Send Greeting Response];
+    F --> J[Answer Question];
+    G --> K[Execute Command];
+    H --> L[Ask for Clarification];
+    I --> M[End];
+    J --> M;
+    K --> M;
+    L --> B;
+'''
