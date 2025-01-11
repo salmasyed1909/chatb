@@ -117,22 +117,33 @@ Bot: Hi, How I can assist you?
 ### Screenshots ###
 ![Screenshot](https://github.com/salmasyed1909/chatb/blob/main/Screenshot%20(255).png)
 
-###Flow Chart###
+Flow Chart
 ```mermaid
-graph LR
-    A[Start] --> B[User Input];
-    B --> C[Text Preprocessing];
-    C --> D[Intent Classification];
-    D -->|Greeting| E[Greeting Intent];
-    D -->|Question| F[Question Intent];
-    D -->|Command| G[Command Intent];
-    D -->|Fallback| H[Fallback Intent];
-    E --> I[Send Greeting Response];
-    F --> J[Answer Question];
-    G --> K[Execute Command];
-    H --> L[Ask for Clarification];
-    I --> M[End];
-    J --> M;
-    K --> M;
-    L --> B;
+graph TD
+    A[Data Preprocessing] --> B[Vectorization]
+    B --> C[Model Training]
+    C --> D[Prediction and Response Generation]
+    D --> E[Test the chatbot]
+
+    A1[Load intents from CSV] --> A2[Clean data: remove duplicates and handle nulls]
+    A --> A1
+    A --> A2
+
+    B1[Use TfidfVectorizer to convert text into vectors] --> B2[Split data into training and testing sets]
+    B --> B1
+    B --> B2
+
+    C1[Train Naive Bayes classifier] --> C2[Save model with pickle] --> C3[Create intent-response mapping]
+    C --> C1
+    C --> C2
+    C --> C3
+
+    D1[Chatbot predicts intent] --> D2[Fetch appropriate response based on intent] --> D3[Return response to user]
+    D --> D1
+    D --> D2
+    D --> D3
+
+    E1[Live interaction with chatbot] --> E2[Test accuracy and responses]
+    E --> E1
+    E --> E2
 '''
