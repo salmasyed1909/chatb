@@ -113,7 +113,7 @@ Bot: Hi, How I can assist you?
 ### Use Cases of this Model:
 1. Customer Support Automation: Provide 24/7 automated support for customers.
 2. FAQ Automation: Automatically respond to frequently asked questions on websites or apps.
-   # NLP Chatbot Flow
+   
 ### Screenshots ###
 ![Screenshot](https://github.com/salmasyed1909/chatb/blob/main/Screenshot%20(255).png)
 
